@@ -121,6 +121,7 @@ func (c *StateRmCommand) Run(args []string) int {
 		c.showDiagnostics(diags)
 		return 1
 	}
+	defer b.Close()
 
 	// Get schemas, if possible, before writing state
 	var schemas *opentf.Schemas

@@ -39,6 +39,7 @@ func (c *StateMeta) State() (statemgr.Full, error) {
 		if backendDiags.HasErrors() {
 			return nil, backendDiags.Err()
 		}
+		defer b.Close()
 
 		workspace, err := c.Workspace()
 		if err != nil {
@@ -64,6 +65,8 @@ func (c *StateMeta) State() (statemgr.Full, error) {
 			// This should never fail
 			panic(backendDiags.Err())
 		}
+		defer localRaw.Close()
+
 		localB := localRaw.(*backendLocal.Local)
 		_, stateOutPath, _ = localB.StatePaths(workspace)
 		if err != nil {

@@ -68,6 +68,7 @@ func (c *OutputCommand) Outputs(statePath string) (map[string]*states.OutputValu
 	if diags.HasErrors() {
 		return nil, diags
 	}
+	defer b.Close()
 
 	// This is a read-only command
 	c.ignoreRemoteVersionConflict(b)

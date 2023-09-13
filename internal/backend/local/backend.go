@@ -104,6 +104,14 @@ func NewWithBackend(backend backend.Backend) *Local {
 	}
 }
 
+func (b *Local) Close() error {
+	if b.Backend != nil {
+		return b.Backend.Close()
+	}
+
+	return nil
+}
+
 func (b *Local) ConfigSchema() *configschema.Block {
 	if b.Backend != nil {
 		return b.Backend.ConfigSchema()

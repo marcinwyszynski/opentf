@@ -70,6 +70,7 @@ func (c *WorkspaceDeleteCommand) Run(args []string) int {
 		c.showDiagnostics(diags)
 		return 1
 	}
+	defer b.Close()
 
 	// This command will not write state
 	c.ignoreRemoteVersionConflict(b)

@@ -208,6 +208,7 @@ func TestLocalRun_stalePlan(t *testing.T) {
 }
 
 type backendWithStateStorageThatFailsRefresh struct {
+	backend.NopCloser
 }
 
 var _ backend.Backend = backendWithStateStorageThatFailsRefresh{}

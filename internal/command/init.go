@@ -213,6 +213,7 @@ func (c *InitCommand) Run(args []string) int {
 	// on a previous run) we'll use the current state as a potential source
 	// of provider dependencies.
 	if back != nil {
+		defer back.Close()
 		c.ignoreRemoteVersionConflict(back)
 		workspace, err := c.Workspace()
 		if err != nil {

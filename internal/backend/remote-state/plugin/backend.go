@@ -3,6 +3,7 @@ package plugin
 import (
 	"context"
 	"fmt"
+	"os"
 	"os/exec"
 
 	goplugin "github.com/hashicorp/go-plugin"
@@ -21,6 +22,7 @@ type Backend struct {
 
 	// The fields below are set from configure.
 	client backendplugin.BackendPlugin
+	killFn func()
 }
 
 func New() backend.Backend {
@@ -59,6 +61,16 @@ func New() backend.Backend {
 	result := &Backend{Backend: s}
 	result.Backend.ConfigureFunc = result.configure
 	return result
+}
+
+func (b *Backend) Close() error {
+	fmt.Fprintln(os.Stderr, "Closing backend")
+
+	if b != nil && b.killFn != nil {
+		b.killFn()
+	}
+
+	return nil
 }
 
 func (b *Backend) StateMgr(workspace string) (statemgr.Full, error) {
@@ -175,6 +187,7 @@ func (b *Backend) configure(ctx context.Context) error {
 		Cmd:              exec.Command("sh", "-c", source),
 		AllowedProtocols: []goplugin.Protocol{goplugin.ProtocolGRPC},
 	})
+	b.killFn = client.Kill
 
 	rpcClient, err := client.Client()
 	if err != nil {

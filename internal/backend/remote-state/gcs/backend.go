@@ -26,6 +26,7 @@ import (
 // Input(), Validate() and Configure() are implemented by embedding *schema.Backend.
 // State(), DeleteState() and States() are implemented explicitly.
 type Backend struct {
+	backend.NopCloser
 	*schema.Backend
 
 	storageClient  *storage.Client

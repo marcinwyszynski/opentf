@@ -59,6 +59,7 @@ func (m *Meta) completePredictWorkspaceName() complete.Predictor {
 		if diags.HasErrors() {
 			return nil
 		}
+		defer b.Close()
 
 		names, _ := b.Workspaces()
 		return names

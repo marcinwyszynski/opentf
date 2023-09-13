@@ -173,6 +173,7 @@ func (c *ImportCommand) Run(args []string) int {
 		c.showDiagnostics(diags)
 		return 1
 	}
+	defer b.Close()
 
 	// We require a backend.Local to build a context.
 	// This isn't necessarily a "local.Local" backend, which provides local

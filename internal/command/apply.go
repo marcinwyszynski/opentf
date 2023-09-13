@@ -103,6 +103,7 @@ func (c *ApplyCommand) Run(rawArgs []string) int {
 		view.Diagnostics(diags)
 		return 1
 	}
+	defer be.Close()
 
 	// Build the operation request
 	opReq, opDiags := c.OperationRequest(be, view, args.ViewType, planFile, args.Operation, args.AutoApprove)

@@ -82,6 +82,7 @@ func (c *StatePushCommand) Run(args []string) int {
 		c.showDiagnostics(backendDiags)
 		return 1
 	}
+	defer b.Close()
 
 	// Determine the workspace name
 	workspace, err := c.Workspace()
