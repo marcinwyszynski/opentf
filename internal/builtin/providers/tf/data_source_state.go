@@ -108,6 +108,7 @@ func dataSourceRemoteStateRead(d cty.Value) (cty.Value, tfdiags.Diagnostics) {
 	if moreDiags.HasErrors() {
 		return cty.NilVal, diags
 	}
+	defer b.Close()
 
 	configureDiags := b.Configure(cfg)
 	if configureDiags.HasErrors() {

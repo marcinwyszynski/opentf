@@ -190,6 +190,7 @@ func New() backend.Backend {
 }
 
 type Backend struct {
+	backend.NopCloser
 	*schema.Backend
 
 	// The fields below are set from configure

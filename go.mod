@@ -1,8 +1,8 @@
 module github.com/placeholderplaceholderplaceholder/opentf
 
 require (
-	cloud.google.com/go/kms v1.10.1
-	cloud.google.com/go/storage v1.28.1
+	cloud.google.com/go/kms v1.15.0
+	cloud.google.com/go/storage v1.30.1
 	github.com/Azure/azure-sdk-for-go v59.2.0+incompatible
 	github.com/Azure/go-autorest/autorest v0.11.24
 	github.com/Netflix/go-expect v0.0.0-20220104043353-73e0943537d2
@@ -36,9 +36,9 @@ require (
 	github.com/hashicorp/go-azure-helpers v0.43.0
 	github.com/hashicorp/go-cleanhttp v0.5.2
 	github.com/hashicorp/go-getter v1.7.2
-	github.com/hashicorp/go-hclog v1.4.0
+	github.com/hashicorp/go-hclog v1.5.0
 	github.com/hashicorp/go-multierror v1.1.1
-	github.com/hashicorp/go-plugin v1.4.3
+	github.com/hashicorp/go-plugin v1.5.1
 	github.com/hashicorp/go-retryablehttp v0.7.4
 	github.com/hashicorp/go-tfe v1.32.0
 	github.com/hashicorp/go-uuid v1.0.3
@@ -52,8 +52,9 @@ require (
 	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 	github.com/lib/pq v1.10.3
 	github.com/manicminer/hamilton v0.44.0
+	github.com/marcinwyszynski/backendplugin v0.0.0-20230914104515-c364ef4aa63d
 	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
-	github.com/mattn/go-isatty v0.0.17
+	github.com/mattn/go-isatty v0.0.19
 	github.com/mattn/go-shellwords v1.0.4
 	github.com/mitchellh/cli v1.1.5
 	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db
@@ -84,19 +85,19 @@ require (
 	go.opentelemetry.io/otel v1.16.0
 	go.opentelemetry.io/otel/sdk v1.16.0
 	go.opentelemetry.io/otel/trace v1.16.0
-	golang.org/x/crypto v0.10.0
+	golang.org/x/crypto v0.13.0
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17
 	golang.org/x/mod v0.10.0
-	golang.org/x/net v0.11.0
-	golang.org/x/oauth2 v0.8.0
-	golang.org/x/sys v0.9.0
-	golang.org/x/term v0.9.0
-	golang.org/x/text v0.10.0
+	golang.org/x/net v0.15.0
+	golang.org/x/oauth2 v0.10.0
+	golang.org/x/sys v0.12.0
+	golang.org/x/term v0.12.0
+	golang.org/x/text v0.13.0
 	golang.org/x/tools v0.6.0
 	golang.org/x/tools/cmd/cover v0.1.0-deprecated
-	google.golang.org/api v0.114.0
-	google.golang.org/genproto v0.0.0-20230530153820-e85fd2cbaebc
-	google.golang.org/grpc v1.56.1
+	google.golang.org/api v0.126.0
+	google.golang.org/genproto v0.0.0-20230803162519-f966b187b2e5
+	google.golang.org/grpc v1.58.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
 	google.golang.org/protobuf v1.31.0
 	honnef.co/go/tools v0.4.2
@@ -107,13 +108,13 @@ require (
 )
 
 require (
-	cloud.google.com/go v0.110.0 // indirect
-	cloud.google.com/go/compute v1.19.1 // indirect
+	cloud.google.com/go v0.110.6 // indirect
+	cloud.google.com/go/compute v1.23.0 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
-	cloud.google.com/go/iam v0.13.0 // indirect
+	cloud.google.com/go/iam v1.1.1 // indirect
 	github.com/AlecAivazis/survey/v2 v2.3.6 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
-	github.com/Azure/go-autorest/autorest/adal v0.9.18 // indirect
+	github.com/Azure/go-autorest/autorest/adal v0.9.23 // indirect
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.4 // indirect
 	github.com/Azure/go-autorest/autorest/date v0.3.0 // indirect
 	github.com/Azure/go-autorest/autorest/to v0.4.0 // indirect
@@ -146,7 +147,7 @@ require (
 	github.com/creack/pty v1.1.18 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/dylanmei/iso8601 v0.1.0 // indirect
-	github.com/fatih/color v1.13.0 // indirect
+	github.com/fatih/color v1.15.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
@@ -154,14 +155,15 @@ require (
 	github.com/go-openapi/strfmt v0.21.3 // indirect
 	github.com/gofrs/uuid v4.0.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
+	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/go-github/v45 v45.2.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/gofuzz v1.1.0 // indirect
+	github.com/google/s2a-go v0.1.4 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.3 // indirect
-	github.com/googleapis/gax-go/v2 v2.7.1 // indirect
+	github.com/googleapis/gax-go/v2 v2.11.0 // indirect
 	github.com/googleapis/gnostic v0.5.5 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
@@ -171,7 +173,7 @@ require (
 	github.com/hashicorp/go-slug v0.12.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.1 // indirect
 	github.com/hashicorp/serf v0.9.6 // indirect
-	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d // indirect
+	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/henvic/httpretty v0.0.6 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
@@ -197,7 +199,7 @@ require (
 	github.com/mozillazg/go-httpheader v0.3.0 // indirect
 	github.com/muesli/termenv v0.12.0 // indirect
 	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d // indirect
-	github.com/oklog/run v1.0.0 // indirect
+	github.com/oklog/run v1.1.0 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/samber/lo v1.37.0 // indirect
@@ -225,8 +227,8 @@ require (
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20230530153820-e85fd2cbaebc // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20230530153820-e85fd2cbaebc // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20230726155614-23370e0ffb3e // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20230913181813-007df8e322eb // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

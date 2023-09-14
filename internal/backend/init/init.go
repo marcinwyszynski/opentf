@@ -24,6 +24,7 @@ import (
 	backendKubernetes "github.com/placeholderplaceholderplaceholder/opentf/internal/backend/remote-state/kubernetes"
 	backendOSS "github.com/placeholderplaceholderplaceholder/opentf/internal/backend/remote-state/oss"
 	backendPg "github.com/placeholderplaceholderplaceholder/opentf/internal/backend/remote-state/pg"
+	backendPlugin "github.com/placeholderplaceholderplaceholder/opentf/internal/backend/remote-state/plugin"
 	backendS3 "github.com/placeholderplaceholderplaceholder/opentf/internal/backend/remote-state/s3"
 	backendCloud "github.com/placeholderplaceholderplaceholder/opentf/internal/cloud"
 )
@@ -65,6 +66,7 @@ func Init(services *disco.Disco) {
 		"kubernetes": func() backend.Backend { return backendKubernetes.New() },
 		"oss":        func() backend.Backend { return backendOSS.New() },
 		"pg":         func() backend.Backend { return backendPg.New() },
+		"plugin":     func() backend.Backend { return backendPlugin.New() },
 		"s3":         func() backend.Backend { return backendS3.New() },
 
 		// Terraform Cloud 'backend'

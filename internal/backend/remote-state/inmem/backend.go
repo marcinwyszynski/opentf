@@ -61,6 +61,7 @@ func New() backend.Backend {
 }
 
 type Backend struct {
+	backend.NopCloser
 	*schema.Backend
 }
 

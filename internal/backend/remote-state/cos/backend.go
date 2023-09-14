@@ -35,6 +35,7 @@ const (
 
 // Backend implements "backend".Backend for tencentCloud cos
 type Backend struct {
+	backend.NopCloser
 	*schema.Backend
 	credential *common.Credential
 

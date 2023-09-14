@@ -43,6 +43,7 @@ func (c *StateListCommand) Run(args []string) int {
 		c.showDiagnostics(backendDiags)
 		return 1
 	}
+	defer b.Close()
 
 	// This is a read-only command
 	c.ignoreRemoteVersionConflict(b)

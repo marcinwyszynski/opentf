@@ -312,6 +312,7 @@ func (m *Meta) BackendForLocalPlan(settings plans.Backend) (backend.Enhanced, tf
 	}
 	b := f()
 	log.Printf("[TRACE] Meta.BackendForLocalPlan: instantiated backend of type %T", b)
+	defer b.Close()
 
 	schema := b.ConfigSchema()
 	configVal, err := settings.Config.Decode(schema.ImpliedType())

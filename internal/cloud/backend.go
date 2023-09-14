@@ -49,6 +49,8 @@ const (
 // integration for Terraform CLI. This backend is not intended to be surfaced at the user level and
 // is instead an implementation detail of cloud.Cloud.
 type Cloud struct {
+	backend.NopCloser
+
 	// CLI and Colorize control the CLI output. If CLI is nil then no CLI
 	// output will be done. If CLIColor is nil then no coloring will be done.
 	CLI      cli.Ui

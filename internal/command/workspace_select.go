@@ -67,6 +67,7 @@ func (c *WorkspaceSelectCommand) Run(args []string) int {
 		c.showDiagnostics(diags)
 		return 1
 	}
+	defer b.Close()
 
 	if err != nil {
 		c.Ui.Error(fmt.Sprintf("Failed to load backend: %s", err))

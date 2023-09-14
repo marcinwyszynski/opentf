@@ -44,6 +44,8 @@ const (
 // Remote is an implementation of EnhancedBackend that performs all
 // operations in a remote backend.
 type Remote struct {
+	backend.NopCloser
+
 	// CLI and Colorize control the CLI output. If CLI is nil then no CLI
 	// output will be done. If CLIColor is nil then no coloring will be done.
 	CLI      cli.Ui

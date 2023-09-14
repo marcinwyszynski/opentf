@@ -82,6 +82,7 @@ func (c *GraphCommand) Run(args []string) int {
 		c.showDiagnostics(diags)
 		return 1
 	}
+	defer b.Close()
 
 	// We require a local backend
 	local, ok := b.(backend.Local)

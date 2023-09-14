@@ -155,6 +155,8 @@ func (c *ShowCommand) showFromLatestStateSnapshot() (*statefile.File, tfdiags.Di
 	if backendDiags.HasErrors() {
 		return nil, diags
 	}
+	defer b.Close()
+
 	c.ignoreRemoteVersionConflict(b)
 
 	// Load the workspace
@@ -282,6 +284,8 @@ func (c *ShowCommand) getDataFromCloudPlan(plan *cloudplan.SavedPlanBookmark, re
 	if backendDiags.HasErrors() {
 		return nil, errUnusable(backendDiags.Err(), "cloud plan")
 	}
+	defer b.Close()
+
 	// Cloud plans only work if we're cloud.
 	cl, ok := b.(*cloud.Cloud)
 	if !ok {

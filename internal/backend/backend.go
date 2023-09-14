@@ -10,6 +10,7 @@ package backend
 import (
 	"context"
 	"errors"
+	"io"
 	"log"
 	"os"
 
@@ -56,6 +57,8 @@ type InitFn func() Backend
 
 // Backend is the minimal interface that must be implemented to enable OpenTF.
 type Backend interface {
+	io.Closer
+
 	// ConfigSchema returns a description of the expected configuration
 	// structure for the receiving backend.
 	//
@@ -440,3 +443,9 @@ func ReadPathOrContents(poc string) (string, error) {
 
 	return poc, nil
 }
+
+// NopCloser is an io.Closer that does nothing on Close.
+type NopCloser struct{}
+
+// Close does nothing.
+func (NopCloser) Close() error { return nil }

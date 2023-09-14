@@ -89,6 +89,7 @@ func (c *ProvidersCommand) Run(args []string) int {
 		c.showDiagnostics(diags)
 		return 1
 	}
+	defer b.Close()
 
 	// This is a read-only command
 	c.ignoreRemoteVersionConflict(b)

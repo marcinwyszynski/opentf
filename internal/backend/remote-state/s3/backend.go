@@ -28,6 +28,8 @@ func New() backend.Backend {
 }
 
 type Backend struct {
+	backend.NopCloser
+
 	s3Client  *s3.S3
 	dynClient *dynamodb.DynamoDB
 

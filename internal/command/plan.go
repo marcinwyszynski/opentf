@@ -73,6 +73,7 @@ func (c *PlanCommand) Run(rawArgs []string) int {
 		view.Diagnostics(diags)
 		return 1
 	}
+	defer be.Close()
 
 	// Build the operation request
 	opReq, opDiags := c.OperationRequest(be, view, args.ViewType, args.Operation, args.OutPath, args.GenerateConfigPath)
