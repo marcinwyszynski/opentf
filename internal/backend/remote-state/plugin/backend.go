@@ -186,14 +186,25 @@ func (b *Backend) configure(ctx context.Context) error {
 	})
 	b.killFn = client.Kill
 
-	rpcClient, err := client.Client()
-	if err != nil {
+	var err error
+
+	// If the config method fails, we need to kill the client since there is a
+	// chance that the plugin is still running and nobody is going to clean it
+	// up.
+	defer func() {
+		if err != nil {
+			b.killFn()
+		}
+	}()
+
+	var rpcClient goplugin.ClientProtocol
+
+	if rpcClient, err = client.Client(); err != nil {
 		return fmt.Errorf("failed to create plugin gRPC client: %w", err)
 	}
 
-	// Request the plugin
-	raw, err := rpcClient.Dispense(backendplugin.BackendPluginName)
-	if err != nil {
+	var raw any
+	if raw, err = rpcClient.Dispense(backendplugin.BackendPluginName); err != nil {
 		return fmt.Errorf("failed to dispense the backend plugin: %w", err)
 	}
 
@@ -206,7 +217,9 @@ func (b *Backend) configure(ctx context.Context) error {
 		strConfig[k] = v.(string)
 	}
 
-	return b.client.Configure(ctx, strConfig)
+	err = b.client.Configure(ctx, strConfig)
+
+	return err
 }
 
 func (b *Backend) workspaces() ([]string, error) {
