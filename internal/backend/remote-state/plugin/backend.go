@@ -3,7 +3,6 @@ package plugin
 import (
 	"context"
 	"fmt"
-	"os"
 	"os/exec"
 
 	goplugin "github.com/hashicorp/go-plugin"
@@ -64,8 +63,6 @@ func New() backend.Backend {
 }
 
 func (b *Backend) Close() error {
-	fmt.Fprintln(os.Stderr, "Closing backend")
-
 	if b != nil && b.killFn != nil {
 		b.killFn()
 	}
@@ -181,7 +178,7 @@ func (b *Backend) configure(ctx context.Context) error {
 	source := config.Get("source").(string)
 
 	client := goplugin.NewClient(&goplugin.ClientConfig{
-		Logger:           logging.NewLogger("backend"),
+		Logger:           logging.NewLogger(backendplugin.BackendPluginName),
 		HandshakeConfig:  backendplugin.Handshake,
 		Plugins:          backendplugin.Plugins,
 		Cmd:              exec.Command("sh", "-c", source),
@@ -209,8 +206,6 @@ func (b *Backend) configure(ctx context.Context) error {
 		strConfig[k] = v.(string)
 	}
 
-	// TODO: kill the client when we're done with it. We will need to teach the
-	// rest of the code that the backend implements io.Closer.
 	return b.client.Configure(ctx, strConfig)
 }
 
